@@ -28,8 +28,8 @@ This project uses only the **Go Standard Library**, ensuring minimal setup and h
 
 ### Setup
 
-1.  **Save the Code:** Save the entire program code into a single file named `fic.go`.
-2.  **Navigate:** Open your terminal and navigate to the directory where you saved `fic.go`.
+1.  **Save the Code:** Save the entire program code into a single folder named `fic`.
+2.  **Navigate:** Open your terminal and navigate to the directory where you saved `fic`.
 
 ---
 
@@ -43,14 +43,13 @@ To generate and print the SHA-256 hash for a specific file:
 
 ### Terminal
 
-go run fic.go generate [path/to/your/file.txt]
+go run main.go hash.go utils.go verify.go [path/to/your/file.txt]
 
 ---
 
 ### Example Output:
 
-Calculating SHA-256 for: /home/user/document.pdf
-SHA-256 Hash: 5f4e03d4b6c3f2a1e8d7b9c0a2f1e6d5b4c3a2b1e0d9c8b7a6f5e4d3c2b1a0f9
+SHA-256 hash of Hello.txt: 5f4e03d4b6c3f2a1e8d7b9c0a2f1e6d5b4c3a2b1e0d9c8b7a6f5e4d3c2b1a0f9
 
 ---
 
@@ -58,18 +57,18 @@ SHA-256 Hash: 5f4e03d4b6c3f2a1e8d7b9c0a2f1e6d5b4c3a2b1e0d9c8b7a6f5e4d3c2b1a0f9
 
 To verify a file against a known hash value (e.g., one provided by a software vendor):
 
-go run fic.go verify [path/to/your/file.txt] [known_hash_value]
+go run main.go hash.go utils.go verify.go [path/to/your/file.txt] [known_hash_value]
 
 ---
 
 ### Example of Success:
 
-go run fic.go verify /home/user/image.jpg 1a2b3c4d5e6f...
-# Output: ✅ Verification SUCCESSFUL. File integrity is confirmed.
+go run main.go hash.go utils.go verify.go Hello.txt 1a2b3c4d5e6f...
+# Output: ✅ File is intact
 
 ---
 
 ### Example of Failure (File Tampered/Corrupted):
 
-go run fic.go verify /home/user/image.jpg 000000000000...
-# Output: ❌ Verification FAILED. Hashes do not match.
+go run main.go hash.go utils.go verify.go Hello.txt000000000000...
+# Output: ❌ File has been modified or corrupted
