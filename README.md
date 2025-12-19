@@ -1,74 +1,152 @@
-﻿# 🐍 Simple File Integrity Checker (FIC)
+##🛡️ Security Toolkit App (Go)
+##✨ Short Description
 
-## ✨ Short Description
+The Security Toolkit App is a menu-driven command-line application built in Go (Golang) that demonstrates core cybersecurity concepts. It combines cryptography and file integrity verification into a single interactive tool.
 
-This command-line utility, built in **Go (Golang)**, provides a simple, robust solution for ensuring **data integrity**. It generates cryptographic hashes (**SHA-256**) for any given file. By comparing a newly calculated hash against a known, trusted hash, users can quickly verify that a file has not been **modified, corrupted, or tampered with** since its initial creation or transfer. 
+The application allows users to:
 
----
+Encrypt and decrypt messages using the Rail Fence Cipher
 
-## 📦 Dependencies or Libraries Used
+Generate and verify SHA-256 hashes to detect file modification, corruption, or tampering
 
-This project uses only the **Go Standard Library**, ensuring minimal setup and high performance.
+This project is designed for educational and academic purposes, helping students understand how encryption and integrity mechanisms work in practice.
 
-| Library | Purpose |
-| :--- | :--- |
-| `crypto/sha256` | Provides the necessary cryptographic functions to calculate the SHA-256 hash. |
-| `io` | Used for efficient **streaming** of file content into the hash function, avoiding excessive memory use for large files. |
-| `os` | Used for file operations (opening files) and command-line argument handling. |
-| `fmt` | Used for formatted output (e.g., printing the hex-encoded hash). |
+##📦 Dependencies or Libraries Used
 
----
+This project uses only the Go Standard Library, ensuring simplicity, portability, and no external dependencies.
 
-## 🛠️ Installation/Setup Instructions
+Library	Purpose
+fmt	Displays menus, messages, and formatted output
+bufio	Handles user input from the command line
+os	File handling and system interaction
+strings	String manipulation and input processing
+strconv	Converts user input (e.g., cipher key)
+crypto/sha256	Generates secure SHA-256 hashes
+encoding/hex	Converts hash bytes to readable hexadecimal
+io	Streams file data efficiently for hashing
+##🛠️ Installation / Setup Instructions
+Prerequisites
 
-### Prerequisites
+Go (Golang)
+Make sure Go is installed:
 
-1.  **Go:** Ensure you have Go installed on your system. You can verify this by running `go version` in your terminal.
-2.  **Version Control (Bonus):** It's recommended to initialize a Git repository for clean version tracking.
+go version
 
-### Setup
 
-1.  **Save the Code:** Save the entire program code into a single folder named `fic`.
-2.  **Navigate:** Open your terminal and navigate to the directory where you saved `fic`.
+Operating System
+Works on Windows, Linux, and macOS.
 
----
+Setup
 
-## 🚀 Usage Examples
+Clone or Download the Project
 
-The tool supports two primary functions: `generate` (to get the hash) and `verify` (to check the hash).
+git clone <repository-url>
 
-### 1. Generating a Hash
 
-To generate and print the SHA-256 hash for a specific file:
+Navigate to the Project Directory
 
-### Terminal
+cd security-toolkit-app
 
-go run main.go hash.go utils.go verify.go [path/to/your/file.txt]
 
----
+Run the Application
 
-### Example Output:
+go run *.go
 
-SHA-256 hash of Hello.txt: 5f4e03d4b6c3f2a1e8d7b9c0a2f1e6d5b4c3a2b1e0d9c8b7a6f5e4d3c2b1a0f9
+##🚀 Usage Examples
 
----
+When the program starts, the following menu is displayed:
 
-### 2. Verifying a Hash
++----------------------------------+
+|        Security Toolkit App       |
++----------------------------------+
+| 1. Cipher Module                 |
+| 2. File Integrity Checker        |
+| 0. Exit                          |
++----------------------------------+
+Choose an option:
 
-To verify a file against a known hash value (e.g., one provided by a software vendor):
+##🔐 Cipher Module
+Encrypt a Message (Rail Fence Cipher)
 
-go run main.go hash.go utils.go verify.go [path/to/your/file.txt] [known_hash_value]
+Steps:
 
----
+Choose option 1
 
-### Example of Success:
+Select Encrypt Message
 
-go run main.go hash.go utils.go verify.go Hello.txt 1a2b3c4d5e6f...
-# Output: ✅ File is intact
+Enter the message
 
----
+Enter the number of rails (key)
 
-### Example of Failure (File Tampered/Corrupted):
+Example:
 
-go run main.go hash.go utils.go verify.go Hello.txt 000000000000...
-# Output: ❌ File has been modified or corrupted
+Enter message: HELLO WORLD
+Enter key (number of rails): 3
+Encrypted Message: HOREL OLLWD
+
+Decrypt a Message
+
+Example:
+
+Enter message: HOREL OLLWD
+Enter key (number of rails): 3
+Decrypted Message: HELLO WORLD
+
+##📁 File Integrity Checker
+1. Generate SHA-256 Hash
+
+Steps:
+
+Choose option 2
+
+Select Generate SHA-256 Hash
+
+Enter file path
+
+Example:
+
+Enter file path: report.txt
+SHA-256 Hash:
+a7c3f1b2e9...
+
+2. Verify File Integrity
+
+Example (File Intact):
+
+Enter file path: report.txt
+Enter known hash: a7c3f1b2e9...
+✅ File is intact
+
+
+Example (File Modified):
+
+❌ File has been modified
+
+##🔄 Program Flow (High-Level)
+Start Program
+   ↓
+Display Main Menu
+   ↓
+User Selects Option
+   ↓
+Cipher Module → Encrypt / Decrypt
+   ↓
+File Integrity Checker → Hash / Verify
+   ↓
+Return to Menu
+   ↓
+Exit
+
+##🎯 Learning Outcomes
+
+Understand classical encryption (Rail Fence Cipher)
+
+Learn how file integrity is verified using cryptographic hashes
+
+Practice building menu-driven CLI applications in Go
+
+Gain hands-on experience with security-focused programming
+
+##📌 Conclusion
+
+The Security Toolkit App provides a simple yet effective way to explore foundational security concepts through hands-on interaction. By combining cryptography and file integrity verification, this tool bridges theory and practice, making it ideal for cybersecurity students and beginners in Go programming.
