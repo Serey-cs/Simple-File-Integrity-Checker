@@ -63,7 +63,7 @@ go version
 3. **Run the application**
 
    ```bash
-   go run *.go
+   go run main.go encrypt.go decrypt.go verify.go utils.g hash.go
    ```
 
 ---
