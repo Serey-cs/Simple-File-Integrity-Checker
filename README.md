@@ -1,61 +1,78 @@
-##🛡️ Security Toolkit App (Go)
-##✨ Short Description
+# 🛡️ Security Toolkit App (Go)
 
-The Security Toolkit App is a menu-driven command-line application built in Go (Golang) that demonstrates core cybersecurity concepts. It combines cryptography and file integrity verification into a single interactive tool.
+## ✨ Overview
 
-The application allows users to:
+The **Security Toolkit App** is a menu-driven command-line application developed in **Go (Golang)** that demonstrates fundamental cybersecurity concepts in a practical manner. The tool integrates **classical cryptography** and **file integrity verification** into a single interactive application.
 
-Encrypt and decrypt messages using the Rail Fence Cipher
+This project is intended primarily for **educational and academic purposes**, enabling students to understand how encryption and integrity mechanisms operate at an implementation level.
 
-Generate and verify SHA-256 hashes to detect file modification, corruption, or tampering
+### Key Features
 
-This project is designed for educational and academic purposes, helping students understand how encryption and integrity mechanisms work in practice.
+* Encrypt and decrypt messages using the **Rail Fence Cipher**
+* Generate **SHA-256 hashes** for files
+* Verify file integrity to detect modification, corruption, or tampering
+* Simple, portable, and dependency-free design
 
-##📦 Dependencies or Libraries Used
+---
 
-This project uses only the Go Standard Library, ensuring simplicity, portability, and no external dependencies.
+## 📦 Dependencies and Libraries
 
-Library	Purpose
-fmt	Displays menus, messages, and formatted output
-bufio	Handles user input from the command line
-os	File handling and system interaction
-strings	String manipulation and input processing
-strconv	Converts user input (e.g., cipher key)
-crypto/sha256	Generates secure SHA-256 hashes
-encoding/hex	Converts hash bytes to readable hexadecimal
-io	Streams file data efficiently for hashing
-##🛠️ Installation / Setup Instructions
-Prerequisites
+This project relies **exclusively on the Go Standard Library**, ensuring ease of setup and cross-platform compatibility.
 
-Go (Golang)
-Make sure Go is installed:
+| Library         | Purpose                                       |
+| --------------- | --------------------------------------------- |
+| `fmt`           | Display menus, messages, and formatted output |
+| `bufio`         | Read user input from the command line         |
+| `os`            | File handling and system interaction          |
+| `strings`       | String manipulation and input processing      |
+| `strconv`       | Convert user input (e.g., cipher key)         |
+| `crypto/sha256` | Generate secure SHA-256 hashes                |
+| `encoding/hex`  | Convert hash bytes to hexadecimal format      |
+| `io`            | Efficient file streaming for hashing          |
 
+---
+
+## 🛠️ Installation and Setup
+
+### Prerequisites
+
+* **Go (Golang)** installed on your system
+
+Verify installation:
+
+```bash
 go version
+```
 
+* Supported operating systems: **Windows, Linux, macOS**
 
-Operating System
-Works on Windows, Linux, and macOS.
+### Setup Instructions
 
-Setup
+1. **Clone or download the repository**
 
-Clone or Download the Project
+   ```bash
+   git clone <repository-url>
+   ```
 
-git clone <repository-url>
+2. **Navigate to the project directory**
 
+   ```bash
+   cd security-toolkit-app
+   ```
 
-Navigate to the Project Directory
+3. **Run the application**
 
-cd security-toolkit-app
+   ```bash
+   go run *.go
+   ```
 
+---
 
-Run the Application
+## 🚀 Usage
 
-go run *.go
+When the application starts, the following menu is displayed:
 
-##🚀 Usage Examples
-
-When the program starts, the following menu is displayed:
-
+```
 +----------------------------------+
 |        Security Toolkit App       |
 +----------------------------------+
@@ -64,65 +81,81 @@ When the program starts, the following menu is displayed:
 | 0. Exit                          |
 +----------------------------------+
 Choose an option:
+```
 
-##🔐 Cipher Module
-Encrypt a Message (Rail Fence Cipher)
+---
 
-Steps:
+## 🔐 Cipher Module (Rail Fence Cipher)
 
-Choose option 1
+### Encrypt a Message
 
-Select Encrypt Message
+**Steps:**
 
-Enter the message
+1. Select option **1** from the main menu
+2. Choose **Encrypt Message**
+3. Enter the plaintext message
+4. Enter the number of rails (key)
 
-Enter the number of rails (key)
+**Example:**
 
-Example:
-
+```
 Enter message: HELLO WORLD
 Enter key (number of rails): 3
 Encrypted Message: HOREL OLLWD
+```
 
-Decrypt a Message
+### Decrypt a Message
 
-Example:
+**Example:**
 
+```
 Enter message: HOREL OLLWD
 Enter key (number of rails): 3
 Decrypted Message: HELLO WORLD
+```
 
-##📁 File Integrity Checker
-1. Generate SHA-256 Hash
+> Note: The Rail Fence Cipher is a classical transposition cipher and is not secure for real-world applications.
 
-Steps:
+---
 
-Choose option 2
+## 📁 File Integrity Checker
 
-Select Generate SHA-256 Hash
+### Generate SHA-256 Hash
 
-Enter file path
+**Steps:**
 
-Example:
+1. Select option **2** from the main menu
+2. Choose **Generate SHA-256 Hash**
+3. Enter the file path
 
+**Example:**
+
+```
 Enter file path: report.txt
-SHA-256 Hash:
-a7c3f1b2e9...
+SHA-256 Hash: a7c3f1b2e9...
+```
 
-2. Verify File Integrity
+### Verify File Integrity
 
-Example (File Intact):
+**Example (File Intact):**
 
+```
 Enter file path: report.txt
 Enter known hash: a7c3f1b2e9...
 ✅ File is intact
+```
 
+**Example (File Modified):**
 
-Example (File Modified):
-
+```
 ❌ File has been modified
+```
 
-##🔄 Program Flow (High-Level)
+---
+
+## 🔄 Program Flow (High-Level)
+
+```
 Start Program
    ↓
 Display Main Menu
@@ -136,17 +169,21 @@ File Integrity Checker → Hash / Verify
 Return to Menu
    ↓
 Exit
+```
 
-##🎯 Learning Outcomes
+---
 
-Understand classical encryption (Rail Fence Cipher)
+## 🎯 Learning Outcomes
 
-Learn how file integrity is verified using cryptographic hashes
+By completing and using this project, users will:
 
-Practice building menu-driven CLI applications in Go
+* Understand **classical encryption techniques** (Rail Fence Cipher)
+* Learn how **file integrity** is verified using cryptographic hash functions
+* Practice building **menu-driven CLI applications** in Go
+* Gain hands-on experience with **security-oriented programming concepts**
 
-Gain hands-on experience with security-focused programming
+---
 
-##📌 Conclusion
+## 📌 Conclusion
 
-The Security Toolkit App provides a simple yet effective way to explore foundational security concepts through hands-on interaction. By combining cryptography and file integrity verification, this tool bridges theory and practice, making it ideal for cybersecurity students and beginners in Go programming.
+The **Security Toolkit App** offers a concise and practical introduction to essential cybersecurity principles. By combining message encryption and file integrity verification into a single tool, the project effectively bridges theoretical knowledge and real-world implementation, making it well-suited for cybersecurity students and Go programming beginners.
